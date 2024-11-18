@@ -67,21 +67,3 @@ export const loginAdmin = async (email, password,) => {
 
 };
 
-export const verifyToken = (token) => {
-    try {
-        const decoded = jwt.verify(token, JWT_SECRET);
-        console.log("Token verified:", decoded);
-        return {
-            success: true,
-            message: "Token is valid",
-            data: decoded
-        };
-    } catch (error) {
-        console.error("Token verification failed:", error);
-        return {
-            success: false,
-            message: "Invalid or expired token",
-            error: error.message
-        };
-    }
-};
